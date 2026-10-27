@@ -1847,3 +1847,137 @@ footer{view-transition-name:mt-foot}
 
 /* === szary tekst dociągnięty do czytelności (WCAG 4.5 na wszystkich tłach) === */
 :root{--muted:#716360;}
+
+/* ============================================================
+   SKÓRKA „KLINDWORTH" (Szymon 27.10.2026: przerób stronę na styl klindworthroofing.com)
+   Ciepły beż + grafit + brąz, szeryf wersalikami w nagłówkach, przyciski-pigułki,
+   zdjęcie w hero cięte ukośnymi pasami. Blok MUSI zostać ostatni - wygrywa nad resztą.
+   ============================================================ */
+:root{
+  --paper:#EDE9E2;--paper-2:#E4DED4;--paper-3:#DCD5C9;
+  --ink:#24262B;--ink-soft:#3A3D44;--muted:#5F5A52;--line:rgba(36,38,43,.14);
+  --accent:#AC9376;--accent-d:#6E5B45;--accent-soft:rgba(172,147,118,.16);--accent-text:#6E5B45;
+  --dark:#24262B;
+  --font-display:'Fraunces','Georgia',serif;
+  --font-body:'Satoshi','Helvetica Neue',Arial,sans-serif;
+  --r-sm:14px;--r-md:18px;--r-lg:24px;
+}
+body{background:var(--paper);color:var(--ink)}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;font-variation-settings:"opsz" 144,"SOFT" 0;letter-spacing:-.005em}
+h1,h2{text-transform:uppercase;line-height:1.02}
+h3{letter-spacing:0}
+.eyebrow,.cta .eyebrow{color:var(--accent-d);font-family:var(--font-body);font-weight:500;letter-spacing:.12em}
+.eyebrow::before{background:var(--accent)}
+
+/* przyciski = pigułki jak u wzorca */
+.btn{border-radius:999px;font-weight:500;letter-spacing:.01em}
+.btn-accent,.btn-accent[data-accent-d]{background:transparent;color:var(--ink);border:1px solid var(--accent);box-shadow:none}
+.btn-accent:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.cta .btn-light{background:transparent;color:#fff;border:1px solid var(--accent);box-shadow:none}
+.cta .btn-light:hover{background:var(--accent);color:var(--ink)}
+
+/* pasek: zawsze jasny, logo z lewej, menu w białej pigułce na środku, telefon z prawej */
+.nav,.nav.is-stuck,.nav.nav-solid{background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;box-shadow:none}
+.nav.nav-solid{border-bottom-color:var(--line)}
+.nav::after{display:none}
+.nav .nav-links a:not(.btn-accent),.nav.nav-solid .nav-links a:not(.btn-accent){color:var(--ink-soft);text-transform:none;letter-spacing:.01em;font-size:.95rem;font-weight:500}
+.nav .nav-links a:not(.btn-accent):hover,.nav .nav-links a.active:not(.btn-accent){color:var(--ink)}
+.nav .nav-links a:not(.btn-accent)::after{background:var(--accent)}
+.nav .nav-toggle span{background:var(--ink)}
+.nav .nav-links a.btn-accent,.nav:not(.nav-solid) .nav-links a.btn-accent{background:transparent;border:0;color:var(--ink);font-family:var(--font-display);font-size:1.15rem;font-weight:600;text-transform:none;letter-spacing:0;padding:.4rem 0;border-radius:0}
+.nav .nav-links a.btn-accent:hover,.nav:not(.nav-solid) .nav-links a.btn-accent:hover{background:transparent;color:var(--accent-d);filter:none}
+@media(min-width:681px){
+  .nav .nav-links{gap:0;flex:0 1 auto;margin-inline:auto;background:#fff;border-radius:999px;padding:.35rem .5rem;box-shadow:0 1px 2px rgba(36,38,43,.05),0 8px 24px -14px rgba(36,38,43,.25)}
+  .nav .nav-links a:not(.btn-accent){padding:.45rem 1.05rem;border-radius:999px}
+  .nav .nav-links a:not(.btn-accent)::after{display:none}
+  .nav .nav-links a:not(.btn-accent):hover,.nav .nav-links a.active:not(.btn-accent){background:var(--paper)}
+  .nav .nav-inner{height:80px}
+}
+@media(max-width:680px){
+  .nav .nav-links{background:var(--paper)}
+  .nav .nav-links a.btn-accent{position:static;transform:none;border:1px solid var(--accent);border-radius:999px;padding:.7rem 1rem;font-family:var(--font-body);font-size:1rem}
+}
+
+/* HERO: tekst na beżu z lewej, zdjęcie z prawej przecięte ukośnymi pasami */
+.hero-kw{position:relative;isolation:isolate;overflow:hidden;background:var(--paper);min-height:min(100svh,900px);display:flex;align-items:center;padding-block:clamp(7rem,14vh,9rem) clamp(3rem,8vh,5rem)}
+.hero-kw .wrap{position:relative;z-index:2}
+.kw-copy{max-width:min(36rem,48%)}
+.kw-kicker{display:block;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin-bottom:1.1rem}
+.kw-title{font-size:min(clamp(2.8rem,1.6rem + 4vw,5.2rem),10svh);line-height:.98;margin-bottom:1.4rem}
+.kw-lead{font-size:clamp(1.05rem,1rem + .25vw,1.22rem);line-height:1.6;color:var(--ink-soft);max-width:34rem}
+.kw-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-top:2rem}
+.kw-actions .btn{padding:.95rem 1.8rem;font-size:1.02rem}
+.kw-tel{font-family:var(--font-display);font-weight:600;font-size:1.35rem;color:var(--ink);white-space:nowrap;border-bottom:1px solid var(--accent);padding-bottom:2px}
+.kw-tel:hover{color:var(--accent-d)}
+.kw-trust{margin-top:2.2rem;font-size:.92rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.kw-trust .ico-star{color:var(--accent)}
+.kw-art{position:absolute;top:0;bottom:0;right:0;width:56%;z-index:1;
+  clip-path:polygon(34% 6%,100% 6%,100% 100%,16% 100%,0 64%)}
+.kw-art img{width:100%;height:100%;object-fit:cover;display:block}
+.kw-bar{position:absolute;top:-20%;height:140%;width:clamp(26px,3.4vw,52px);background:var(--paper);z-index:2;pointer-events:none}
+.kw-bar1{left:44%;transform:rotate(-34deg)}
+.kw-bar2{left:60%;transform:rotate(34deg)}
+@media(max-width:900px){
+  .hero-kw{flex-direction:column;align-items:stretch;min-height:0;padding-top:6.5rem}
+  .kw-copy{max-width:none}
+  .kw-art{position:relative;width:100%;height:clamp(260px,52vw,420px);margin-top:2.5rem;order:2;
+    clip-path:polygon(0 18%,30% 0,100% 0,100% 100%,0 100%)}
+  .kw-bar1{left:38%}.kw-bar2{left:62%}
+}
+
+/* „Co robimy": wstęp + duże karty z podpisem pod zdjęciem */
+.kw-what .kw-what-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:end;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.kw-what .kw-what-top p{color:var(--ink-soft);font-size:var(--text-lg);line-height:1.6}
+.kw-what .gateway{aspect-ratio:4/5;border-radius:var(--r-md)}
+.kw-what .gateway::after{background:linear-gradient(180deg,transparent 50%,rgba(36,38,43,.72))}
+.kw-what .gateway .g-ttl{font-family:var(--font-display);text-transform:uppercase;font-weight:600;font-size:1.6rem;letter-spacing:0}
+.kw-what .gateway .g-ttl small{text-transform:none;font-family:var(--font-body)}
+@media(max-width:800px){.kw-what .kw-what-top{grid-template-columns:1fr}}
+
+/* sekcje, karty, galeria - zaokrąglenia i tła jak u wzorca */
+.fach-uslugi,.opinie{background:var(--paper-2)}
+.fu-name{font-family:var(--font-display);text-transform:uppercase;font-weight:600}
+.fu-cta{color:var(--accent-d)}
+.tile,.tile img,.svc-row-art,.svc-row-art img,.op-card,.faq-item{border-radius:var(--r-md)}
+.op-card{background:var(--paper);box-shadow:none;border:1px solid var(--line)}
+.op-card blockquote{font-family:var(--font-display);font-size:1.18rem;line-height:1.5;font-weight:400}
+.op-star,.op-star .ico-star{color:var(--accent)}
+.pno{color:var(--accent-d)}
+
+/* nagłówki podstron w tym samym języku co hero: beż + zdjęcie cięte ukośnie */
+.pagehead{background:var(--paper);min-height:clamp(380px,52svh,560px);align-items:center;border-bottom:0}
+.pagehead::after{display:none}
+.pagehead img{left:auto;right:0;width:52%;clip-path:polygon(30% 0,100% 0,100% 100%,12% 100%,0 60%)}
+.pagehead .wrap{color:var(--ink);padding-block:clamp(7rem,14vh,8.5rem) 3rem}
+.pagehead h1{color:var(--ink);text-shadow:none;max-width:12ch}
+.pagehead .eyebrow{color:var(--accent-d)}
+.pagehead .eyebrow::before{background:var(--accent)}
+.pagehead p{color:var(--ink-soft);text-shadow:none;max-width:34ch}
+@media(max-width:800px){
+  .pagehead{flex-direction:column;align-items:stretch;min-height:0}
+  .pagehead img{position:relative;width:100%;height:240px;order:2;clip-path:polygon(0 20%,30% 0,100% 0,100% 100%,0 100%)}
+  .pagehead .wrap{padding-bottom:1.5rem}
+}
+
+/* „Popracujmy razem": ciemny blok z dużym numerem, jak u wzorca */
+.cta,footer{background:var(--dark)}
+.cta::before{display:none}
+.cta h2{font-size:clamp(2.2rem,1.4rem + 3vw,4rem)}
+.kw-bigtel{display:inline-block;font-family:var(--font-display);font-weight:600;font-size:clamp(2rem,1.2rem + 3vw,3.6rem);color:#fff;margin-top:1.2rem;white-space:nowrap}
+.kw-bigtel:hover{color:var(--accent)}
+footer .name{font-family:var(--font-display);text-transform:uppercase;font-weight:600}
+footer h4{color:var(--accent)}
+.sticky-call .sc-call,.sticky-call .sc-quote{border-radius:999px}
+/* poprawki po obejrzeniu zrzutu: tytuł nie wchodzi na zdjęcie, pigułka menu bez rezerwy JS pod telefon */
+.kw-title{font-size:min(clamp(2.5rem,1.3rem + 3.3vw,4.4rem),9svh)}
+.kw-art{width:52%}
+@media(min-width:681px){.nav .nav-links{padding-right:.5rem!important}}
+@media(min-width:681px) and (max-width:1060px){
+  .nav .nav-links{margin-inline:auto 13rem}
+  .nav .nav-links a:not(.btn-accent){padding:.45rem .7rem}
+}
+@media(max-width:900px){.kw-art{width:100%}}
+.kw-what .kw-what-top .head{margin-bottom:0}
+.cta .eyebrow{color:var(--accent)}
